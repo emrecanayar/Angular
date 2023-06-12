@@ -9,6 +9,7 @@ import { importProvidersFrom, inject } from '@angular/core';
 import {
   PreloadAllModules,
   provideRouter,
+  withComponentInputBinding,
   withPreloading,
 } from '@angular/router';
 
@@ -36,6 +37,7 @@ bootstrapApplication(AppComponent, {
         }, //Router input özelliği örnek kullanımı
       ],
       withPreloading(PreloadAllModules) //Preloading mekanızmasını aktif etme şekli.
+      ,withComponentInputBinding() //Bununla beraber Router Input özelliğini kullanarak path den gelen dataları verileri guarddan gelen verileri route daki parametreyi vs. hepsini okuyabiliyoruz. (ProductComponent içerisinde bu duruma bakabilirsiniz.)
     ),
   ],
 });
